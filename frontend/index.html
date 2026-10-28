@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0e7490" />
+    <meta name="description" content="احجز موعد كشفك في مركز شفاء الطبي — 5 تخصصات و10 أطباء، دفع أونلاين أو في العيادة، وتذكير على واتساب." />
+    <title>مركز شفاء الطبي — احجز موعدك</title>
+    <script>
+      // Apply the saved theme and language before first paint (no white flash, no LTR jump)
+      try {
+        var theme = localStorage.getItem("clinic-theme")
+        var dark = theme === "dark" || (theme !== "light" && matchMedia("(prefers-color-scheme: dark)").matches)
+        if (dark) document.documentElement.classList.add("dark")
+        if (localStorage.getItem("clinic-locale") === "en") {
+          document.documentElement.lang = "en"
+          document.documentElement.dir = "ltr"
+        }
+      } catch (e) {}
+    </script>
+    <style>
+      /* Boot loader: shown until React renders (same look as components/shared/pulse-loader.tsx) */
+      :root { --boot-bg: oklch(0.99 0.006 200); --boot-primary: oklch(0.52 0.105 222); --boot-accent: oklch(0.6 0.12 165); --boot-fg: oklch(0.99 0.005 200); }
+      :root.dark { --boot-bg: oklch(0.17 0.025 230); --boot-primary: oklch(0.74 0.11 210); --boot-accent: oklch(0.72 0.13 163); --boot-fg: oklch(0.2 0.04 230); color-scheme: dark; }
+      body { margin: 0; background: var(--boot-bg); }
+      .boot { min-height: 100dvh; display: grid; place-items: center; animation: boot-in 0.3s ease-out 0.15s both; }
+      .boot-inner { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+      .boot-logo { width: 48px; height: 48px; transform-origin: center; animation: boot-beat 1.6s ease-in-out infinite; }
+      .boot-ecg { width: 96px; height: 28px; overflow: visible; }
+      .boot-ecg path { fill: none; stroke: var(--boot-primary); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .boot-ecg .base { opacity: 0.15; }
+      .boot-ecg .trace { stroke-dasharray: 0.3 1; stroke-dashoffset: 1.3; animation: boot-sweep 1.6s cubic-bezier(0.45, 0, 0.25, 1) infinite; }
+      @keyframes boot-sweep { to { stroke-dashoffset: 0; } }
+      @keyframes boot-beat { 0%, 42%, 72%, 100% { transform: scale(1); } 52% { transform: scale(1.08); } 62% { transform: scale(0.97); } }
+      .boot.boot-out { animation: boot-out 0.25s ease-in forwards; }
+      @keyframes boot-in { from { opacity: 0; } }
+      @keyframes boot-out { to { opacity: 0; } }
+      @media (prefers-reduced-motion: reduce) { .boot-logo { animation: none; } .boot-ecg .trace { animation-duration: 3s; } }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div class="boot" role="status" aria-label="جارٍ التحميل">
+        <div class="boot-inner">
+          <svg class="boot-logo" viewBox="0 0 40 40" aria-hidden="true">
+            <defs>
+              <linearGradient id="boot-g" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="var(--boot-primary)" />
+                <stop offset="1" stop-color="var(--boot-accent)" />
+              </linearGradient>
+            </defs>
+            <rect width="40" height="40" rx="12" fill="url(#boot-g)" />
+            <path d="M17 10h6v7h7v6h-7v7h-6v-7h-7v-6h7z" fill="var(--boot-fg)" opacity="0.95" />
+            <circle cx="29.5" cy="10.5" r="3" fill="var(--boot-fg)" opacity="0.55" />
+          </svg>
+          <svg class="boot-ecg" viewBox="0 0 120 36" aria-hidden="true">
+            <path class="base" pathLength="1" d="M2 20H38L43 12L48 20H54L60 4L67 32L72 20H118" />
+            <path class="trace" pathLength="1" d="M2 20H38L43 12L48 20H54L60 4L67 32L72 20H118" />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

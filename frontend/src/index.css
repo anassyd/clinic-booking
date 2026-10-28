@@ -1,0 +1,329 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "@fontsource-variable/figtree";
+@import "@fontsource-variable/noto-sans-arabic";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design tokens — generated with UI/UX Pro Max ("medical clinic" profile):
+ * calm teal primary + health green accent, Figtree / Noto Sans Arabic.
+ * Primary is darkened from cyan-600 to cyan-700 so white text passes WCAG AA.
+ */
+:root {
+  --radius: 0.875rem;
+
+  --background: oklch(0.99 0.006 200);
+  --foreground: oklch(0.27 0.045 222);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.27 0.045 222);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.27 0.045 222);
+  --primary: oklch(0.52 0.105 222);
+  --primary-foreground: oklch(0.99 0.005 200);
+  --secondary: oklch(0.96 0.02 205);
+  --secondary-foreground: oklch(0.33 0.07 222);
+  --muted: oklch(0.965 0.012 215);
+  --muted-foreground: oklch(0.5 0.03 240);
+  --accent: oklch(0.95 0.035 175);
+  --accent-foreground: oklch(0.38 0.08 170);
+  --destructive: oklch(0.577 0.215 27);
+  --border: oklch(0.915 0.02 215);
+  --input: oklch(0.9 0.022 215);
+  --ring: oklch(0.6 0.11 215);
+
+  --success: oklch(0.53 0.12 163);
+  --success-foreground: oklch(0.99 0.01 160);
+  --warning: oklch(0.75 0.15 75);
+  --warning-foreground: oklch(0.3 0.07 60);
+
+  --chart-1: oklch(0.52 0.105 222);
+  --chart-2: oklch(0.6 0.12 165);
+  --chart-3: oklch(0.72 0.13 200);
+  --chart-4: oklch(0.75 0.15 75);
+  --chart-5: oklch(0.6 0.17 20);
+
+  --sidebar: oklch(0.985 0.008 205);
+  --sidebar-foreground: oklch(0.27 0.045 222);
+  --sidebar-primary: oklch(0.52 0.105 222);
+  --sidebar-primary-foreground: oklch(0.99 0.005 200);
+  --sidebar-accent: oklch(0.95 0.025 210);
+  --sidebar-accent-foreground: oklch(0.3 0.06 222);
+  --sidebar-border: oklch(0.92 0.018 215);
+  --sidebar-ring: oklch(0.6 0.11 215);
+}
+
+.dark {
+  --background: oklch(0.17 0.025 230);
+  --foreground: oklch(0.96 0.01 210);
+  --card: oklch(0.21 0.03 230);
+  --card-foreground: oklch(0.96 0.01 210);
+  --popover: oklch(0.21 0.03 230);
+  --popover-foreground: oklch(0.96 0.01 210);
+  --primary: oklch(0.74 0.11 210);
+  --primary-foreground: oklch(0.2 0.04 230);
+  --secondary: oklch(0.27 0.035 228);
+  --secondary-foreground: oklch(0.93 0.015 210);
+  --muted: oklch(0.26 0.03 230);
+  --muted-foreground: oklch(0.72 0.025 220);
+  --accent: oklch(0.3 0.05 180);
+  --accent-foreground: oklch(0.9 0.06 170);
+  --destructive: oklch(0.7 0.19 22);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.65 0.1 210);
+
+  --success: oklch(0.72 0.13 163);
+  --success-foreground: oklch(0.2 0.04 165);
+  --warning: oklch(0.8 0.14 80);
+  --warning-foreground: oklch(0.25 0.05 60);
+
+  --chart-1: oklch(0.74 0.11 210);
+  --chart-2: oklch(0.72 0.13 163);
+  --chart-3: oklch(0.65 0.12 240);
+  --chart-4: oklch(0.8 0.14 80);
+  --chart-5: oklch(0.7 0.18 20);
+
+  --sidebar: oklch(0.19 0.028 230);
+  --sidebar-foreground: oklch(0.96 0.01 210);
+  --sidebar-primary: oklch(0.74 0.11 210);
+  --sidebar-primary-foreground: oklch(0.2 0.04 230);
+  --sidebar-accent: oklch(0.27 0.035 228);
+  --sidebar-accent-foreground: oklch(0.96 0.01 210);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.65 0.1 210);
+}
+
+@theme inline {
+  --font-sans: "Figtree Variable", "Noto Sans Arabic Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  /* Tells the browser which theme is on, so native parts (select lists, date pickers, scrollbars) match it */
+  :root {
+    color-scheme: light;
+  }
+  .dark {
+    color-scheme: dark;
+  }
+  /* One scrollbar look across the app: a thin rounded thumb in the brand color, no track or arrows.
+     Chromium/Safari use the ::-webkit-scrollbar parts; Firefox (no such selector) gets the standard properties.
+     Don't set scrollbar-width/scrollbar-color on elements: in Chrome they switch these styles off. */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+  ::-webkit-scrollbar-thumb {
+    /* The transparent border insets the pill, so the visible thumb is 4px with breathing room */
+    border: 3px solid transparent;
+    border-radius: 999px;
+    background-clip: padding-box;
+    background-color: color-mix(in oklch, var(--primary) 30%, transparent);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: color-mix(in oklch, var(--primary) 55%, transparent);
+  }
+  @supports not selector(::-webkit-scrollbar) {
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: color-mix(in oklch, var(--primary) 35%, transparent) transparent;
+    }
+  }
+  select option,
+  select optgroup {
+    background-color: var(--popover);
+    color: var(--popover-foreground);
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer utilities {
+  /* Soft dotted grid used behind the hero and auth panels */
+  .bg-grid {
+    background-image: radial-gradient(
+      color-mix(in oklch, var(--primary) 22%, transparent) 1px,
+      transparent 1px
+    );
+    background-size: 22px 22px;
+  }
+  .shadow-soft {
+    box-shadow:
+      0 1px 2px color-mix(in oklch, var(--foreground) 6%, transparent),
+      0 8px 24px -8px color-mix(in oklch, var(--primary) 18%, transparent);
+  }
+  .shadow-lift {
+    box-shadow:
+      0 2px 4px color-mix(in oklch, var(--foreground) 5%, transparent),
+      0 24px 48px -16px color-mix(in oklch, var(--primary) 28%, transparent);
+  }
+}
+
+/* CTA arrow (components/shared/hover-arrow.tsx): chevron at rest, full arrow on hover/focus */
+.hover-arrow {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  overflow: visible;
+  margin-inline-start: 2px;
+}
+[dir="rtl"] .hover-arrow {
+  transform: scaleX(-1);
+}
+.hover-arrow-shaft {
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.hover-arrow-tip {
+  transition: transform 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.group:hover .hover-arrow-shaft,
+.group:focus-visible .hover-arrow-shaft {
+  opacity: 1;
+}
+.group:hover .hover-arrow-tip,
+.group:focus-visible .hover-arrow-tip {
+  transform: translateX(3px);
+}
+
+/* Brand loader (components/shared/pulse-loader.tsx + the boot copy in index.html):
+   a short segment sweeps along the ECG line; the logo beats as it crosses the spike */
+.pulse-trace {
+  stroke-dasharray: 0.3 1;
+  stroke-dashoffset: 1.3;
+  animation: pulse-sweep 1.6s cubic-bezier(0.45, 0, 0.25, 1) infinite;
+}
+.pulse-beat {
+  transform-origin: center;
+  animation: pulse-beat 1.6s ease-in-out infinite;
+}
+.pulse-loader-delayed {
+  animation: pulse-in 0.3s ease-out 0.2s both;
+}
+@keyframes pulse-sweep {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes pulse-beat {
+  0%,
+  42%,
+  72%,
+  100% {
+    transform: scale(1);
+  }
+  52% {
+    transform: scale(1.08);
+  }
+  62% {
+    transform: scale(0.97);
+  }
+}
+@keyframes pulse-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Header bell (components/layout/notification-bell.tsx): one short swing when something new is unread */
+@keyframes bell-ring {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  15% {
+    transform: rotate(14deg);
+  }
+  30% {
+    transform: rotate(-12deg);
+  }
+  45% {
+    transform: rotate(8deg);
+  }
+  60% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .pulse-beat {
+    animation: none;
+  }
+  .pulse-trace {
+    animation-duration: 3s;
+  }
+}

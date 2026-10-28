@@ -1,0 +1,6 @@
+node_modules
+dist
+.DS_Store
+
+# start.bat marker: the demo DB was seeded on this machine
+backend/database/.seeded

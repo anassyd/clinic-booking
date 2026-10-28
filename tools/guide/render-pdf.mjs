@@ -1,0 +1,12 @@
+import { chromium } from "playwright-core"
+const dir = new URL("../guide/", import.meta.url).pathname.replace(/^\/([A-Z]:)/, "$1")
+const previews = (process.argv[2] ?? "").split(",").filter(Boolean).map(Number)
+const b = await chromium.launch({ channel: "msedge", headless: true })
+const p = await b.newPage({ viewport: { width: 794, height: 1123 }, deviceScaleFactor: 1.4 })
+await p.goto("file:///" + dir + "guide.html")
+await p.evaluate(() => document.fonts.ready)
+await p.waitForTimeout(800)
+for (const i of previews) await p.locator("section.page").nth(i - 1).screenshot({ path: dir + `preview-${i}.png` })
+await p.pdf({ path: dir + "guide.pdf", printBackground: true, preferCSSPageSize: true })
+console.log("pdf ok, pages:", await p.locator("section.page").count())
+await b.close()
