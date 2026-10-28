@@ -67,7 +67,7 @@ The owner writes in Egyptian Arabic; answer in the same. UI copy is Arabic MSA (
 - VAT registration (15%?) and ZATCA e-invoicing.
 - Moyasar merchant account; Meta Business / WhatsApp number + 7 templates (names in README).
 - Real prices per doctor (seed uses 350 / 400 / 250 SAR), PDPL / hosting review, domain.
-- Code lives at `D:inic-booking`, pushed to https://github.com/anassyd/clinic-booking (branch `main`).
+- Code lives at `D:/clinic-booking`, pushed to https://github.com/anassyd/clinic-booking (branch `main`).
 
 ## Desk payments (built 2026-10-27)
 
